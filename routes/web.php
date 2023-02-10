@@ -26,6 +26,7 @@ Route::view('productos','secciones.productos' )->name('productos');
 Route::view('cuenta','secciones.cuenta' )->name('micuenta');
 Route::view('crearcuenta','secciones.crearcuenta' )->name('nuevacuenta');
 Route::view('micuenta','secciones.vistausuario' )->name('usuario');
+Route::view('admon','admin.usuario.index' )->name('admn');
 
 
 
