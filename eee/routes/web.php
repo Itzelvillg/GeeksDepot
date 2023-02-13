@@ -2,21 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 
 
 
 
+// Rutas para el usuario
 
 
 Route::view('/','index' )->name('inicio');
@@ -26,7 +17,21 @@ Route::view('productos','secciones.productos' )->name('productos');
 Route::view('cuenta','secciones.cuenta' )->name('micuenta');
 Route::view('crearcuenta','secciones.crearcuenta' )->name('nuevacuenta');
 Route::view('micuenta','secciones.vistausuario' )->name('usuario');
-Route::view('admon','admin.usuario.index' )->name('admn');
+
+
+// Rutas para el admin
+
+
+Route::view('administracion','admin.index' )->name('admin');
+Route::view('userAdm','admin.secciones.usuario.index' )->name('admuser');
+Route::view('blogAdm','admin.secciones.blog.index' )->name('admblog');
+Route::view('brandAdm','admin.secciones.brand.index' )->name('admbrand');
+Route::view('productAdm','admin.secciones.product.index' )->name('admproduct');
+Route::view('purchaseAdm','admin.secciones.purchase.index' )->name('admpurchase');
+Route::view('imgAdm','admin.secciones.image.index' )->name('admimage');
+
+
+
 
 
 
