@@ -7,11 +7,13 @@
       </tr>
     </thead>
     <tbody>
+      @foreach ($brand as $brand)
       <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto.jpg</td>
+        <th scope="row">{{ $brand->id}}</th>
+        <td>{{ $brand->nombre}}</td>
+        <td>{{ $brand->imagen}}/td>
       </tr>
+      @endforeach
       
     </tbody>
   </table>

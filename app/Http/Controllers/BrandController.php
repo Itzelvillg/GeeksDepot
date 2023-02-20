@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreBrandRequest;
-use App\Http\Requests\UpdateBrandRequest;
+// use App\Http\Requests\StoreBrandRequest;
+// use App\Http\Requests\UpdateBrandRequest;
+use Illuminate\Http\Request;
+
 
 class BrandController extends Controller
 {
@@ -16,7 +18,9 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        
+        $brand=Brand::all();
+            return view('admin.secciones.brand.index')->with('brand',$brand);
     }
 
     /**
@@ -26,7 +30,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.secciones.brand.index');
     }
 
     /**
@@ -35,9 +39,15 @@ class BrandController extends Controller
      * @param  \App\Http\Requests\StoreBrandRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBrandRequest $request)
+    public function store(Request $request)
     {
-        //
+        $brand = new Brand();
+
+        $brand->nombre = $request->nombre;
+        $brand->imagen = $request->imagen;
+        $brand->save();
+        echo "se realizo con exito el registro";
+
     }
 
     /**
@@ -46,9 +56,10 @@ class BrandController extends Controller
      * @param  \App\Models\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function show(Brand $brand)
+    public function show($id)
     {
-        //
+        $brand=Brand::find($id);
+        return view('admin.secciones.brand.show')->with('brand',$brand);
     }
 
     /**
@@ -57,9 +68,10 @@ class BrandController extends Controller
      * @param  \App\Models\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function edit(Brand $brand)
+    public function edit($id)
     {
-        //
+        $brand=Brand::find($id);
+        return view('admin.secciones.brand.edit')->with('brand',$brand);
     }
 
     /**
@@ -69,9 +81,13 @@ class BrandController extends Controller
      * @param  \App\Models\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBrandRequest $request, Brand $brand)
+    public function update(Request $request, $id)
     {
-        //
+        $brand=Brand::find($id);
+        $brand->nombre = $request->nombre;
+        $brand->imagen = $request->imagen;
+        $brand->save();
+        echo "se actualizo con exito el registro";
     }
 
     /**
@@ -80,8 +96,10 @@ class BrandController extends Controller
      * @param  \App\Models\Brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Brand $brand)
+    public function destroy( $id)
     {
-        //
+        $brand=Brand::find($id);
+        $brand->delete();
+        echo "se borro con exito el registro";
     }
 }

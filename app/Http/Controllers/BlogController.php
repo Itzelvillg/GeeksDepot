@@ -59,7 +59,7 @@ class BlogController extends Controller
     public function show($id)
     {
         $blog=Blog::find($id);
-            return view('admin.secciones.blog.edit')->with('blog',$blog);
+            return view('admin.secciones.blog.show')->with('blog',$blog);
         
     }
 
