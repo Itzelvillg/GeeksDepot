@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -25,7 +27,7 @@ Route::view('micuenta','secciones.vistausuario' )->name('usuario');
 
 
 Route::view('administracion','admin.index' )->name('admin');
-Route::view('userAdm','admin.secciones.usuario.index' )->name('admuser');
+Route::view('userAdm','admin.secciones.user.index' )->name('admuser');
 Route::view('blogAdm','admin.secciones.blog.index' )->name('admblog');
 Route::view('brandAdm','admin.secciones.brand.index' )->name('admbrand');
 Route::view('productAdm','admin.secciones.product.index' )->name('admproduct');
@@ -37,6 +39,7 @@ Route::view('imgAdm','admin.secciones.image.index' )->name('admimage');
 
 Route::resource('/productAdmin', ProductController::class);
 Route::resource('/blogAdmin',BlogController::class);
-
+Route::resource('/brandAdmin',BrandController::class);
+Route::resource('/userAdmin',UserController::class);
 
 
