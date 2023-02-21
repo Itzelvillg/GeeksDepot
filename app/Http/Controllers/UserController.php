@@ -15,8 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user=User::all();
-            return view('admin.secciones.user.index')->with('user',$user);
+       
+            return view('admin.secciones.user.index')->with('user',User::all());
     }
 
     /**
@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.secciones.brand.index');
+        return view('admin.secciones.user.index')->with('user',User::all());
     }
 
     /**
@@ -47,7 +47,7 @@ class UserController extends Controller
         $user->status = $request->status;
         $user->password = $request->password;
         $user->save();
-        echo "se realizo con exito el registro";
+        return view('admin.secciones.user.index')->with('user',User::all());
     }
 
     /**
@@ -92,7 +92,7 @@ class UserController extends Controller
         $user->status = $request->status;
         $user->password = $request->password;
         $user->save();
-        echo "se actualizo con exito el registro";
+        return view('admin.secciones.user.index')->with('user',User::all());
     }
 
     /**
@@ -105,6 +105,6 @@ class UserController extends Controller
     {
         $user=User::find($id);
         $user->delete();
-        echo "se borro con exito el registro";
-    }
+        return view('admin.secciones.user.index')->with('user',User::all());
+}
 }

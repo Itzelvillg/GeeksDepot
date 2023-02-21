@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreImageRequest;
-use App\Http\Requests\UpdateImageRequest;
+// use App\Http\Requests\StoreImageRequest;
+// use App\Http\Requests\UpdateImageRequest;
+use Illuminate\Http\Request;
 
 class ImageController extends Controller
 {
@@ -16,7 +17,8 @@ class ImageController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.secciones.image.index')->with('image',Image::all());
+
     }
 
     /**
@@ -26,7 +28,7 @@ class ImageController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.secciones.image.index')->with('image',Image::all());
     }
 
     /**
@@ -35,9 +37,16 @@ class ImageController extends Controller
      * @param  \App\Http\Requests\StoreImageRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreImageRequest $request)
+    public function store(Request $request)
     {
-        //
+        $image = new Image();
+
+        $image->product_id = $request->product_id;
+        $image->imagen = $request->imagen;
+        
+        $image->save();
+        return view('admin.secciones.image.index')->with('image',Image::all());
+
     }
 
     /**
@@ -46,9 +55,10 @@ class ImageController extends Controller
      * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function show(Image $image)
+    public function show($id)
     {
-        //
+        $image=Image::find($id);
+        return view('admin.secciones.image.show')->with('image',$image);
     }
 
     /**
@@ -57,9 +67,10 @@ class ImageController extends Controller
      * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function edit(Image $image)
+    public function edit($id)
     {
-        //
+        $image=Image::find($id);
+        return view('admin.secciones.image.edit')->with('image',$image);
     }
 
     /**
@@ -69,9 +80,14 @@ class ImageController extends Controller
      * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateImageRequest $request, Image $image)
+    public function update(Request $request, $id)
     {
-        //
+        $image=Image::find($id);
+        $image->product_id = $request->product_id;
+        $image->imagen = $request->imagen;
+        
+        $image->save();
+        return view('admin.secciones.image.index')->with('image',Image::all());
     }
 
     /**
@@ -80,8 +96,10 @@ class ImageController extends Controller
      * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Image $image)
+    public function destroy($id)
     {
-        //
+        $image=Image::find($id);
+        $image->delete();
+        return view('admin.secciones.image.index')->with('image',Image::all());
     }
 }

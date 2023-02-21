@@ -18,9 +18,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        
-        $brand=Brand::all();
-            return view('admin.secciones.brand.index')->with('brand',$brand);
+;
+            return view('admin.secciones.brand.index')->with('brand',Brand::all());
     }
 
     /**
@@ -30,7 +29,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view('admin.secciones.brand.index');
+        return view('admin.secciones.brand.index')->with('brand',Brand::all());
     }
 
     /**
@@ -46,7 +45,7 @@ class BrandController extends Controller
         $brand->nombre = $request->nombre;
         $brand->imagen = $request->imagen;
         $brand->save();
-        echo "se realizo con exito el registro";
+        return view('admin.secciones.brand.index')->with('brand',Brand::all());
 
     }
 
@@ -87,7 +86,7 @@ class BrandController extends Controller
         $brand->nombre = $request->nombre;
         $brand->imagen = $request->imagen;
         $brand->save();
-        echo "se actualizo con exito el registro";
+        return view('admin.secciones.brand.index')->with('brand',Brand::all());
     }
 
     /**
@@ -100,6 +99,6 @@ class BrandController extends Controller
     {
         $brand=Brand::find($id);
         $brand->delete();
-        echo "se borro con exito el registro";
+        return view('admin.secciones.brand.index')->with('brand',Brand::all());
     }
 }

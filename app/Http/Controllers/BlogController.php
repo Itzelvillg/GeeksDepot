@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Http\Controllers\Controller;
 // use App\Http\Requests\Request;
-use App\Http\Requests\UpdateBlogRequest;
+// use App\Http\Requests\UpdateBlogRequest;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -18,8 +18,7 @@ class BlogController extends Controller
     public function index()
     {
         
-        $blog=Blog::all();
-            return view('admin.secciones.blog.index')->with('blog',$blog);
+            return view('admin.secciones.blog.index')->with('blog',Blog::all());
     }
 
     /**
@@ -29,7 +28,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('admin.secciones.blog.index');
+        return view('admin.secciones.blog.index')->with('blog',Blog::all());
     }
 
     /**
@@ -47,7 +46,7 @@ class BlogController extends Controller
         $blog->imagen = $request->imagen;
         $blog->save();
 
-        echo "se realizo con exito el registro";
+        return view('admin.secciones.blog.index')->with('blog',Blog::all());
     }
 
     /**
@@ -90,7 +89,7 @@ class BlogController extends Controller
         $blog->noticia = $request->noticia;
         $blog->imagen = $request->imagen;
         $blog->save();
-        echo "se actualizo con exito el registro";
+        return view('admin.secciones.blog.index')->with('blog',Blog::all());
 
     }
 
@@ -104,7 +103,7 @@ class BlogController extends Controller
     {
         $blog =  Blog::find($id);
         $blog->delete();
-        echo "se borro con exito el registro";
+        return view('admin.secciones.blog.index')->with('blog',Blog::all());
 
     }
 }
