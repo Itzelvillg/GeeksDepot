@@ -17,8 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $product=Product::all();
-            return view('admin.secciones.product.index')->with('product',$product);
+  
+            return view('admin.secciones.product.index')->with('product',Product::all());
 
     }
 
@@ -29,7 +29,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-      return view('admin.secciones.product.index');
+        return view('admin.secciones.product.index')->with('product',Product::all());
     }
 
     /**
@@ -44,13 +44,14 @@ class ProductController extends Controller
 
         $product->nombre = $request->nombre;
         $product->precio = $request->precio;
+        $product->cantidad = $request->cantidad;
         $product->descripcion = $request->descripcion;
         $product->brand_id = $request->brand_id;
         $product->status = $request->status;
 
         $product->save();
 
-        echo "si realizo con exito el registro";
+        return view('admin.secciones.product.index')->with('product',Product::all());
     }
 
     /**
@@ -92,11 +93,14 @@ class ProductController extends Controller
 
         $product->nombre = $request->nombre;
         $product->precio = $request->precio;
+        $product->cantidad = $request->cantidad;
+
         $product->descripcion = $request->descripcion;
         $product->brand_id = $request->brand_id;
         $product->status = $request->status;
         
-        $product->save();
+        return view('admin.secciones.product.index')->with('product',Product::all());
+
     }
 
     /**
@@ -109,6 +113,7 @@ class ProductController extends Controller
     {
         $product =  Product::find($id);
         $product->delete();
+        return view('admin.secciones.product.index')->with('product',Product::all());
 
     }
 }
