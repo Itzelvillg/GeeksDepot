@@ -19,6 +19,6 @@
         <td>{{ $product->brand_id }}</td>
         <td>{{ $product->status }}</td>
       </tr>
-      
+      @endforeach
     </tbody>
   </table>
