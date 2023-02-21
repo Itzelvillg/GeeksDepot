@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  @extends('admin.layout.index')
+  <!-- Required meta tags -->
+
+  @section('title','Image')
+  <link rel="shortcut icon" href="{{ url('GD/img/gdbot.png') }}" type='image/x-icon'>
+</head>
+
+<body>
+  
+@section('content')
 <form method="POST" action="/brandAdmin/{{$brand->id}}">
   @csrf
   @method('PUT')
@@ -12,3 +26,8 @@
   </div>
   <button type="submit" class="btn btn-primary">Enviar para editar</button>
 </form>
+@endsection
+
+  
+</body>
+</html>

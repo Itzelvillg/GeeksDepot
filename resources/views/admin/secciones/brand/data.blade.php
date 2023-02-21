@@ -11,7 +11,7 @@
       <tr>
         <th scope="row">{{ $brand->id}}</th>
         <td>{{ $brand->nombre}}</td>
-        <td>{{ $brand->imagen}}/td>
+        <td>{{ $brand->imagen}}</td>
       </tr>
       @endforeach
       

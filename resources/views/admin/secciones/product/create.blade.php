@@ -9,6 +9,10 @@
     <input type="number" class="form-control" id="precio" name="precio" >
   </div>
   <div class="form-group">
+    <label for="cantidad">Cantidad</label>
+    <input type="number" class="form-control" id="cantidad" name="cantidad" >
+  </div>
+  <div class="form-group">
     <label for="descripcion">Descripción</label>
     <input type="text" class="form-control" id="descripcion" name="descripcion"  >
   </div>

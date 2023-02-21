@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  @extends('admin.layout.index')
+  <!-- Required meta tags -->
+
+  @section('title','Image')
+  <link rel="shortcut icon" href="{{ url('GD/img/gdbot.png') }}" type='image/x-icon'>
+</head>
+
+<body>
+  
+@section('content')
 <form method="Post" action="/productAdmin/{{$product->id}}">
 @csrf
 @method('DELETE')
@@ -12,6 +26,10 @@
   <div class="form-group">
     <label for="precio">Precio</label>
     <input type="number" class="form-control" id="precio" name="precio" value="{{ $product->precio}}" readonly>
+  </div>
+  <div class="form-group">
+    <label for="cantidad">Cantidad</label>
+    <input type="number" class="form-control" id="cantidad" name="cantidad" value="{{ $product->cantidad}}" readonly>
   </div>
   <div class="form-group">
     <label for="descripcion">Descripción</label>
@@ -29,5 +47,10 @@
 
   <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
+@endsection
+
+  
+</body>
+</html>
 
 
