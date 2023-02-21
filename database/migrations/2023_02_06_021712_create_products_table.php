@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->double('precio',8,2);
+            $table->double('cantidad');
             $table->text('descripcion');
             $table->foreignId('brand_id');
             $table->string('status');
