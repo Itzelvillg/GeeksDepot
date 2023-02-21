@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         $product=Product::all();
-            return view('admin.secciones.product.data')->with('product',$product);
+            return view('admin.secciones.product.index')->with('product',$product);
 
     }
 
@@ -29,7 +29,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-      return view('admin.secciones.product.create');
+      return view('admin.secciones.product.index');
     }
 
     /**
