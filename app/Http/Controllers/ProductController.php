@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Http\Controllers\Controller;
 // use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -18,7 +19,7 @@ class ProductController extends Controller
     public function index()
     {
   
-            return view('admin.secciones.product.index')->with('product',Product::all());
+            return view('admin.secciones.product.index')->with('product',Product::all())->with('brand',Brand::all());
 
     }
 
@@ -29,7 +30,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.secciones.product.index')->with('product',Product::all());
+        return view('admin.secciones.product.index')->with('product',Product::all())->with('brand',Brand::all());
     }
 
     /**
@@ -51,7 +52,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        return view('admin.secciones.product.index')->with('product',Product::all());
+        return view('admin.secciones.product.index')->with('product',Product::all())->with('brand',Brand::all());
     }
 
     /**
@@ -64,7 +65,7 @@ class ProductController extends Controller
     {
         
         $product=Product::find($id);
-            return view('admin.secciones.product.show')->with('product',$product);
+            return view('admin.secciones.product.show')->with('product',$product)->with('brand',Brand::all());
     }
 
     /**
@@ -77,7 +78,7 @@ class ProductController extends Controller
     {
        
         $product=Product::find($id);
-            return view('admin.secciones.product.edit')->with('product',$product);
+            return view('admin.secciones.product.edit')->with('product',$product)->with('brand',Brand::all());
     }
 
     /**
@@ -99,7 +100,7 @@ class ProductController extends Controller
         $product->brand_id = $request->brand_id;
         $product->status = $request->status;
         
-        return view('admin.secciones.product.index')->with('product',Product::all());
+        return view('admin.secciones.product.index')->with('product',Product::all())->with('brand',Brand::all());
 
     }
 
@@ -113,7 +114,7 @@ class ProductController extends Controller
     {
         $product =  Product::find($id);
         $product->delete();
-        return view('admin.secciones.product.index')->with('product',Product::all());
+        return view('admin.secciones.product.index')->with('product',Product::all())->with('brand',Brand::all());
 
     }
 }
