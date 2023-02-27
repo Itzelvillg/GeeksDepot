@@ -9,6 +9,8 @@
         <th scope="col">Dirección</th>
         <th scope="col">Status</th>
         <th scope="col">Password</th>
+        <th scope="col" class="text-danger">Editar</th>
+        <th scope="col"class="text-warning">Borrar</th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +24,8 @@
         <td>{{ $user->direccion}}</td>
         <td>{{ $user->status}}</td>
         <td>{{ $user->password}}</td>
+        <td> <a href="{{ url('/userAdmin/'.$user->id.'/edit')}}">Editar</a></td>
+        <td> <a href="{{ url('/userAdmin/'.$user->id)}}">Borrar</a></td>
       </tr>
       @endforeach
       

@@ -8,6 +8,8 @@
         <th scope="col">Descripción</th>
         <th scope="col">Marca</th>
         <th scope="col">Estatus</th>
+        <th scope="col" class="text-danger">Editar</th>
+        <th scope="col"class="text-warning">Borrar</th>
       </tr>
     </thead>
     <tbody>
@@ -18,8 +20,10 @@
         <td>{{ $product->precio }}</td>
         <td>{{ $product->cantidad }}</td>
         <td>{{ $product->descripcion }}</td>
-        <td>{{ $product->brand_id }}</td>
+        <td>{{ $product->brand->nombre }}</td>
         <td>{{ $product->status }}</td>
+        <td> <a href="{{ url('/productAdmin/'.$product->id.'/edit')}}">Editar</a></td>
+        <td> <a href="{{ url('/productAdmin/'.$product->id)}}">Borrar</a></td>
       </tr>
       @endforeach
     </tbody>

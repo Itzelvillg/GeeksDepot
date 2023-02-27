@@ -18,7 +18,13 @@
   </div>
   <div class="form-group">
     <label for="brand_id">Marca</label>
-    <input type="number" class="form-control" id="brand_id" name="brand_id" >
+    {{-- <input type="number" class="form-control" id="brand_id" name="brand_id" > --}}
+    <select class="form-control" id="brand_id" name="brand_id">
+      <option value="">Seleccione la marca</option>
+      @foreach($brand as $brand)
+      <option value="{{$brand->id}}">{{$brand->nombre}}</option>
+      @endforeach
+    </select>
   </div>
   <div class="form-group">
     <label for="status">Status</label>

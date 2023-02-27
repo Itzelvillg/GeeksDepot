@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ImageController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -41,5 +42,6 @@ Route::resource('/productAdmin', ProductController::class);
 Route::resource('/blogAdmin',BlogController::class);
 Route::resource('/brandAdmin',BrandController::class);
 Route::resource('/userAdmin',UserController::class);
+Route::resource('/imageAdmin',ImageController::class);
 
 

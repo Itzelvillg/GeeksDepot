@@ -10,37 +10,37 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('userAdm') }}">
+              <a class="nav-link" href="{{ url('userAdmin') }}">
                 <span data-feather="file"></span>
                 Users
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('productAdm') }}">
+              <a class="nav-link" href="{{ url('productAdmin') }}">
                 <span data-feather="shopping-cart"></span>
                 Products
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('blogAdm') }}">
+              <a class="nav-link" href="{{ url('blogAdmin') }}">
                 <span data-feather="users"></span>
                Blog
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('brandAdm') }}">
+              <a class="nav-link" href="{{ url('brandAdmin') }}">
                 <span data-feather="bar-chart-2"></span>
                 Brands
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('purchaseAdm') }}">
+              <a class="nav-link" href="{{ url('purchaseAdmin') }}">
                 <span data-feather="layers"></span>
                Purchase
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url('imgAdm') }}">
+              <a class="nav-link" href="{{ url('imageAdmin') }}">
                 <span data-feather="bar-chart-2"></span>
                Images
               </a>

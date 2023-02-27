@@ -5,6 +5,8 @@
         <th scope="col">Titulo</th>
         <th scope="col">Noticia</th>
         <th scope="col">Imagen</th>
+         <th scope="col" class="text-danger">Editar</th>
+        <th scope="col"class="text-warning">Borrar</th>
       </tr>
     </thead>
     
@@ -15,6 +17,8 @@
         <td>{{ $blog->titulo }}</td>
         <td>{{ $blog->noticia }}</td>
         <td>{{ $blog->imagen }}</td>
+         <td> <a href="{{ url('/blogAdmin/'.$blog->id.'/edit')}}">Editar</a></td>
+        <td> <a href="{{ url('/blogAdmin/'.$blog->id)}}">Borrar</a></td>
       </tr> 
       @endforeach
      
