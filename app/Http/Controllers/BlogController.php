@@ -43,7 +43,13 @@ class BlogController extends Controller
 
         $blog->titulo = $request->titulo;
         $blog->noticia = $request->noticia;
-        $blog->imagen = $request->imagen;
+        if($request->hasFile('imagen')){
+            $imagen= $request->file('imagen');
+            $destino='admin/files/blog/';
+            $origen=$imagen->getClientOriginalName();
+            $imagen->move( $destino,$origen);
+            $blog->imagen = $origen;
+        }
         $blog->save();
 
         return view('admin.secciones.blog.index')->with('blog',Blog::all());
@@ -87,7 +93,14 @@ class BlogController extends Controller
 
         $blog->titulo = $request->titulo;
         $blog->noticia = $request->noticia;
-        $blog->imagen = $request->imagen;
+        if($request->hasFile('imagen')){
+            $imagen= $request->file('imagen');
+            $destino='admin/files/blog/';
+            $origen=$imagen->getClientOriginalName();
+            $imagen->move( $destino,$origen);
+            unlink('admin/files/blog/'.$blog->imagen);
+            $blog->imagen = $origen;
+        }
         $blog->save();
         return view('admin.secciones.blog.index')->with('blog',Blog::all());
 
@@ -102,6 +115,8 @@ class BlogController extends Controller
     public function destroy($id)
     {
         $blog =  Blog::find($id);
+        unlink('admin/files/blog/'.$blog->imagen);
+
         $blog->delete();
         return view('admin.secciones.blog.index')->with('blog',Blog::all());
 

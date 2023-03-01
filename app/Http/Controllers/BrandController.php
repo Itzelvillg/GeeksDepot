@@ -43,7 +43,13 @@ class BrandController extends Controller
         $brand = new Brand();
 
         $brand->nombre = $request->nombre;
-        $brand->imagen = $request->imagen;
+        if($request->hasFile('imagen')){
+            $imagen= $request->file('imagen');
+            $destino='admin/files/brand/';
+            $origen=$imagen->getClientOriginalName();
+            $imagen->move( $destino,$origen);
+            $brand->imagen = $origen;
+        }
         $brand->save();
         return view('admin.secciones.brand.index')->with('brand',Brand::all());
 
@@ -84,7 +90,14 @@ class BrandController extends Controller
     {
         $brand=Brand::find($id);
         $brand->nombre = $request->nombre;
-        $brand->imagen = $request->imagen;
+        if($request->hasFile('imagen')){
+            $imagen= $request->file('imagen');
+            $destino='admin/files/brand/';
+            $origen=$imagen->getClientOriginalName();
+            $imagen->move( $destino,$origen);
+            unlink('admin/files/brand/'.$brand->imagen);
+            $brand->imagen = $origen;
+        }
         $brand->save();
         return view('admin.secciones.brand.index')->with('brand',Brand::all());
     }
@@ -98,6 +111,8 @@ class BrandController extends Controller
     public function destroy( $id)
     {
         $brand=Brand::find($id);
+        unlink('admin/files/brand/'.$brand->imagen);
+
         $brand->delete();
         return view('admin.secciones.brand.index')->with('brand',Brand::all());
     }
