@@ -1,4 +1,4 @@
-<form method="POST" action="/blogAdmin">
+<form method="POST" action="/blogAdmin" enctype="multipart/form-data">
   @csrf
 
     <div class="form-group">
@@ -11,8 +11,8 @@
     </div>
     
     <div class="form-group">
+      <input type="file" class="form-control-file" id="imagen" name="imagen" accept="image/*" required>
       <label for="imagen">Selecione su imagen</label>
-      <input type="text" class="form-control-file" id="imagen" name="imagen">
     </div>
     <button type="submit" class="btn btn-primary">Enviar</button>
   </form>

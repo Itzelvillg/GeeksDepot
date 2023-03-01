@@ -38,10 +38,10 @@
   </div>
   <div class="form-group">
     <label for="brand_id">Marca</label>
-    <select class="form-control" id="brand_id" name="brand_id">
+    <select class="form-select" aria-label="Default select example" id="brand_id" name="brand_id">
       <option value="">Seleccione la marca</option>
       @foreach($brand as $brand)
-      <option value="{{$brand->id}}">{{$brand->nombre}}</option>
+      <option value="{{$brand->id}}"{{ ($brand->id==$product->brand->id)? 'selected' : '' }}>{{$brand->nombre}}</option>
       @endforeach
     </select>
   </div>

@@ -37,12 +37,8 @@
   </div>
   <div class="form-group">
     <label for="brand_id">Marca</label>
-    <select class="form-control" id="brand_id" name="brand_id">
-      <option value="">Seleccione la marca</option>
-      @foreach($brand as $brand)
-      <option value="{{$brand->id}}">{{$brand->nombre}}</option>
-      @endforeach
-    </select>
+    <input type="text"  class="form-control" id="brand_id" name="brand_id" value="{{$product->brand->id}}" readonly>
+    
   </div>
   <div class="form-group">
     <label for="status">Status</label>

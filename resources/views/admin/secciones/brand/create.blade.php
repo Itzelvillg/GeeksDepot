@@ -1,4 +1,4 @@
-<form method="POST" action="/brandAdmin">
+<form method="POST" action="/brandAdmin" enctype="multipart/form-data">
   @csrf
   <div class="form-group">
     <label for="nombre">Nombre de la marca</label>
@@ -7,7 +7,7 @@
   
   <div class="form-group">
     <label for="imagen">Selecione su imagen</label>
-    <input type="text" class="form-control-file" id="imagen" name="imagen">
+    <input type="file" class="form-control-file" id="imagen" name="imagen" accept="image/*" required>
   </div>
   <button type="submit" class="btn btn-primary">Enviar</button>
 </form>

@@ -12,7 +12,7 @@
 
 <body>
 @section('content')
-  <form method="POST" action="/blogAdmin/{{$blog->id}}">
+  <form method="POST" action="/blogAdmin/{{$blog->id}}" enctype="multipart/form-data">
     @csrf
     @method('PUT')
       <div class="form-group">
@@ -25,8 +25,9 @@
       </div>
       
       <div class="form-group">
+        l<img src="/admin/files/blog/{{ $blog->imagen }}" alt="" width="100">
         <label for="imagen">Selecione su imagen</label>
-        <input type="text" class="form-control-file" id="imagen" name="imagen" value="{{ $blog->imagen}}">
+        <input type="file" class="form-control-file" id="imagen" name="imagen" accept="image/*" required>
       </div>
       <button type="submit" class="btn btn-primary">Enviar para editar</button>
   </form>

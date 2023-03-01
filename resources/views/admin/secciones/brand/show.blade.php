@@ -21,9 +21,8 @@
   </div>
   
   <div class="form-group">
-    <label for="imagen">Selecione su imagen</label>
-    <input type="text" class="form-control-file" id="imagen" name="imagen" value="{{ $brand->imagen}}" disabled>
-  </div>
+    <img src="/admin/files/brand/{{ $brand->imagen}}" alt="" width="100">  </div>
+    <label for="imagen">Su imagen</label>
   <button type="submit" class="btn btn-primary">Enviar para borrar</button>
 </form>
 @endsection

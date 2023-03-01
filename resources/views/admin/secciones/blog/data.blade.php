@@ -16,7 +16,7 @@
         <th scope="row">{{ $blog->id }}</th>
         <td>{{ $blog->titulo }}</td>
         <td>{{ $blog->noticia }}</td>
-        <td>{{ $blog->imagen }}</td>
+        <td><img src="/admin/files/blog/{{ $blog->imagen }}" alt="" width="100"></td>
          <td> <a href="{{ url('/blogAdmin/'.$blog->id.'/edit')}}">Editar</a></td>
         <td> <a href="{{ url('/blogAdmin/'.$blog->id)}}">Borrar</a></td>
       </tr> 

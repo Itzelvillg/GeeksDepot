@@ -13,9 +13,9 @@
       <tr>
         <th scope="row">{{ $brand->id}}</th>
         <td>{{ $brand->nombre}}</td>
-        <td>{{ $brand->imagen}}</td>
-        <td> <a href="{{ url('/brandAdmin/'.$brand->id.'/edit')}}">Editar</a></td>
-        <td> <a href="{{ url('/brandAdmin/'.$brand->id)}}">Borrar</a></td>
+        <td><img src="/admin/files/brand/{{ $brand->imagen}}" alt="" width="100"> </td>
+        <td> <a href="{{ url('brandAdmin/'.$brand->id.'/edit')}}">Editar</a></td>
+        <td> <a href="{{ url('brandAdmin/'.$brand->id)}}">Borrar</a></td>
       </tr>
       @endforeach
       
