@@ -19,8 +19,12 @@ return new class extends Migration
             $table->double('precio',8,2);
             $table->double('cantidad');
             $table->text('descripcion');
+            $table->string('tipo');
             $table->foreignId('brand_id');
             $table->string('status');
+            $table->string('img1', 255);
+            $table->string('img2', 255);
+            $table->string('img3', 255);
             $table->timestamps();
 
 

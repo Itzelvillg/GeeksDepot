@@ -5,6 +5,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\ProductoUserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,8 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::view('/','index' )->name('inicio');
 Route::view('newgeeks','secciones.newgeeks' )->name('blog');
 Route::view('sobregd','secciones.sobregd' )->name('us');
-Route::view('productos','secciones.productos' )->name('productos');
+// Route::view('productos','secciones.productos' )->name('productos');
 Route::view('cuenta','secciones.cuenta' )->name('micuenta');
+Route::view('/detalle','secciones.detalle' )->name('sobre');
 Route::view('crearcuenta','secciones.crearcuenta' )->name('nuevacuenta');
 Route::view('micuenta','secciones.vistausuario' )->name('usuario');
 
@@ -36,7 +38,7 @@ Route::view('purchaseAdm','admin.secciones.purchase.index' )->name('admpurchase'
 Route::view('imgAdm','admin.secciones.image.index' )->name('admimage');
 
 
-// Rutas 
+// Rutas BD
 
 Route::resource('/productAdmin', ProductController::class);
 Route::resource('/blogAdmin',BlogController::class);
@@ -45,3 +47,6 @@ Route::resource('/userAdmin',UserController::class);
 Route::resource('/imageAdmin',ImageController::class);
 
 
+//Metodos de controladores
+Route::get('/productos',[ProductoUserController::class, 'index']);
+Route::get('/detalle/{id}',[ProductoUserController::class, 'show']);
