@@ -30,22 +30,21 @@
 
 
    <div class="main-cards">
-            
-        <div class="product-card todo armadas">
-          <img class="foto-producto" src="GD/img/pcamarilla.png" alt="">
+            @foreach ($product as $product)
+               <div class="product-card todo {{$product->tipo}}">
+          <img class="foto-producto" src="/admin/files/productos/{{$product->img1}}" alt="">
           <div class="card-info">
-            <h3 class="titulo-producto">Producto</h3>
-           <p class="info-producto"> aaaaaaaaaaaaaaaa</p> 
+            <h3 class="titulo-producto">{{$product->nombre}}</h3>
+           <p class="info-producto"> {{$product->descripcion}}</p> 
            <div class="comprar"> 
-             <p class="precio-producto">333</p>
-             <div class="carrito"><a href="#"><img class="" src="{{ url('GD/img/carrito.png') }}" alt="Imagen de facebook" ></a></div>
-            
+             <p class="precio-producto">{{$product->precio}}</p>
+             <div class="carrito"><a href="{{ url('detalle/'.$product->id) }}"><img class="" src="{{ url('GD/img/carrito.png') }}" alt="Imagen de facebook" ></a></div>
            </div>
-           
-
           </div>
+        </div>  
+            @endforeach
+       
 
-        </div>
         <div class="product-card todo monitores">
           <img class="foto-producto" src="GD/img/pcamarilla.png" alt="">
           <div class="card-info">

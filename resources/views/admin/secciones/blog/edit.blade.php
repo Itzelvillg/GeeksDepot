@@ -25,7 +25,7 @@
       </div>
       
       <div class="form-group">
-        l<img src="/admin/files/blog/{{ $blog->imagen }}" alt="" width="100">
+        <img src="/admin/files/blog/{{ $blog->imagen }}" alt="" width="100">
         <label for="imagen">Selecione su imagen</label>
         <input type="file" class="form-control-file" id="imagen" name="imagen" accept="image/*" required>
       </div>

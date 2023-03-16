@@ -619,3 +619,26 @@ font-size: 6rem;
     height: 60px;
     width: 170px;
  }
+
+ .detalle-parrafos{
+    color: var(--light);
+    font-size: 2rem;
+ }
+ .img-detalle img{
+    height: 220px;
+    width: 220px;
+    margin-bottom: 3rem;
+ }
+
+ .caja-detalle{
+    background-color: var(--lightblue);
+    width: 1400px;
+    height: auto;
+    border-radius: 31px;
+    box-shadow: 5px 5px 6px 2px var(--lightyellow) ;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25rem;
+ }

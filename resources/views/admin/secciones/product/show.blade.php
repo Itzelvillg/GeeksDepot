@@ -12,7 +12,7 @@
 <body>
   
 @section('content')
-<form method="Post" action="/productAdmin/{{$product->id}}">
+<form method="Post" action="/productAdmin/{{$product->id}}" enctype="multipart/form-data">
 @csrf
 @method('DELETE')
   <div class="form-group">
@@ -36,6 +36,10 @@
     <input type="text" class="form-control" id="descripcion" name="descripcion" value="{{ $product->descripcion}}" readonly >
   </div>
   <div class="form-group">
+    <label for="tipo">Tipo</label>
+    <input type="text" class="form-control" id="tipo" name="tipo" value="{{ $product->tipo}}"  readonly>
+  </div>
+  <div class="form-group">
     <label for="brand_id">Marca</label>
     <input type="text"  class="form-control" id="brand_id" name="brand_id" value="{{$product->brand->id}}" readonly>
     
@@ -43,6 +47,21 @@
   <div class="form-group">
     <label for="status">Status</label>
     <input type="text" class="form-control" id="status" name="status" value="{{ $product->status}}"  readonly>
+  </div>
+  <div class="d-flex row  align-content-center justify-content-center">
+
+    <div class="form-group mr-5">
+      <img src="/admin/files/productos/{{ $product->img1 }}" alt="" width="100">
+      <label for="imagen">Su 1ra imagen</label>
+    </div>
+    <div class="form-group mr-5">
+      <img src="/admin/files/productos/{{ $product->img2 }}" alt="" width="100">
+      <label for="imagen">Su 2da imagen</label>
+    </div>
+    <div class="form-group mr-5">
+      <img src="/admin/files/productos/{{ $product->img3 }}" alt="" width="100">
+      <label for="imagen">Su 3ra imagen</label>
+    </div>
   </div>
 
 

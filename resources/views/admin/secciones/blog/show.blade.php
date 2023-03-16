@@ -26,7 +26,7 @@
       
       <div class="form-group">
         <label for="imagen">Su imagen</label>
-        l<img src="/admin/files/blog/{{ $blog->imagen }}" alt="" width="100">
+        <img src="/admin/files/blog/{{ $blog->imagen }}" alt="" width="100">
       </div>
       <button type="submit" class="btn btn-primary">Enviar para borrar</button>
     </form>
